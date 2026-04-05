@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Setup: Python venv + deps",
+      "type": "shell",
+      "command": "${workspaceFolder}\\scripts\\setup_dev_env.cmd",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Infra: Start MySQL (Docker)",
+      "type": "shell",
+      "command": "docker compose up -d mysql",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "DB: Seed mock metadata",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python -m app.seed.seed_data",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "dependsOn": [
+        "Setup: Python venv + deps"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "API: Run FastAPI (reload)",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\uvicorn app.main:app --reload --port 8000",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "dependsOn": [
+        "Setup: Python venv + deps"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "FastAPI: Uvicorn (app.main:app)",
+      "type": "python",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "app.main:app",
+        "--reload",
+        "--port",
+        "8000"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}\\.env",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "preLaunchTask": "Setup: Python venv + deps"
+    },
+    {
+      "name": "Seed DB: app.seed.seed_data",
+      "type": "python",
+      "request": "launch",
+      "module": "app.seed.seed_data",
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}\\.env",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "preLaunchTask": "Setup: Python venv + deps"
+    }
+  ]
+}
