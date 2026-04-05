@@ -361,3 +361,11 @@ This repo includes:
 
 - Chinese: [README.zh.md](./README.zh.md)
 - Japanese: [README.ja.md](./README.ja.md)
+
+## License
+
+This project is licensed under [`AGPL-3.0-or-later`](./LICENSE).
+
+- If you modify and distribute this project, you must also open source your modified version under the same license.
+- If you run a modified version for users over a network, you must provide the corresponding source code of that modified version.
+- Repository policy: if you reuse or modify this project for external use, you should publish the modified source in a public Git repository, preferably on GitHub. See [OPEN_SOURCE_POLICY.md](./OPEN_SOURCE_POLICY.md).

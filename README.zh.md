@@ -107,3 +107,11 @@ curl -X POST http://127.0.0.1:8000/chat ^
 - 默认主 README 为英文版：[README.md](./README.md)
 - 如果你需要完整的 API 列表、故障排查说明和 VS Code 开发流程，优先参考英文版
 - 当前仓库目录名仍然保持 `metadata_governance_poc`，以避免影响现有代码路径
+
+## 开源协议
+
+本项目采用 [`AGPL-3.0-or-later`](./LICENSE) 开源协议。
+
+- 如果其他个人或组织修改并再发布本项目，必须继续以相同协议开放源码。
+- 如果修改后的版本通过网络向用户提供服务，也必须向用户提供对应完整源码。
+- 仓库政策额外要求：如果对外复用或修改本项目，应将修改后的源码发布到公开 Git 仓库，优先 GitHub。详见 [OPEN_SOURCE_POLICY.md](./OPEN_SOURCE_POLICY.md)。
