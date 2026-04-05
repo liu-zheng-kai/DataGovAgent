@@ -13,6 +13,15 @@ DataGovAgent の基本方針:
 - LLM は DB に直接触れず、ツール経由でガバナンス質問に答える
 - プロンプト戦略、管理 UI、監査、運用拡張を独立して進化させやすい
 
+## ドキュメント
+
+- アーキテクチャ設計書: [English](./docs/architecture.md) | [中文](./docs/architecture.zh.md) | [日本語](./docs/architecture.ja.md)
+
+### ドキュメント TODO
+
+- [x] Metadata + Runtime + Business Context 三層モデルのアーキテクチャ設計書を公開する
+- [ ] ADF、Synapse、Cosmos DB、Log Analytics、Azure DevOps の対応関係を整理した Azure 連携ドキュメントを追加する
+
 ## アーキテクチャ
 
 ![Architecture Diagram](./docs/images/architecture_flow.png)

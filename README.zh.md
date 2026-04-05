@@ -13,6 +13,15 @@ DataGovAgent 的核心目标：
 - 让 LLM 通过工具回答治理问题，而不是直接查库
 - 让 Prompt 策略、后台控制、运行审计和扩展集成都能独立演进
 
+## 文档入口
+
+- 架构设计文档：[English](./docs/architecture.md) | [中文](./docs/architecture.zh.md) | [日本語](./docs/architecture.ja.md)
+
+### 文档 TODO
+
+- [x] 发布 Metadata + Runtime + Business Context 三层模型的架构设计文档
+- [ ] 补充 Azure 集成专题文档，明确 ADF、Synapse、Cosmos DB、Log Analytics 与 Azure DevOps 的映射关系
+
 ## 架构总览
 
 ![Architecture Diagram](./docs/images/architecture_flow.png)
