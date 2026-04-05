@@ -15,8 +15,9 @@ from app.models.admin import (
     ToolPromptBindingRecord,
     ToolVersionRecord,
 )
+from app.models.ingestion import IngestionJob, RawMetadataSnapshot, SourceSyncState
 from app.models.impact import BusinessImpact
-from app.models.metadata import Asset, AssetDependency, AssetField, SlaDefinition
+from app.models.metadata import Asset, AssetDependency, AssetField, AssetProperty, AssetVersion, SlaDefinition
 from app.models.reference import AssetType, BusinessDomain, DependencyType, System, Team
 from app.models.report import DailySummaryReport
 from app.models.runtime import AssetRuntimeStatus, DomainHealthSnapshot, RuntimeEvent

@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, CheckConstraint, DateTime, ForeignKey, Index, Integer, String, Text, UniqueConstraint, func
+from sqlalchemy import Boolean, CheckConstraint, DateTime, ForeignKey, Index, Integer, JSON, String, Text, UniqueConstraint, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db import Base
@@ -42,6 +42,45 @@ class AssetField(Base):
     data_type: Mapped[str] = mapped_column(String(100), nullable=False)
     is_nullable: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
     description: Mapped[str] = mapped_column(Text, nullable=True)
+
+    asset = relationship('Asset')
+
+
+class AssetProperty(Base):
+    __tablename__ = 'asset_properties'
+    __table_args__ = (
+        Index('ix_asset_properties_asset', 'asset_id'),
+        Index('ix_asset_properties_source', 'source_name'),
+        Index('ix_asset_properties_key', 'property_name'),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    asset_id: Mapped[int] = mapped_column(ForeignKey('assets.id'), nullable=False, index=True)
+    property_name: Mapped[str] = mapped_column(String(150), nullable=False)
+    property_value_json: Mapped[dict] = mapped_column(JSON, nullable=False)
+    source_name: Mapped[str] = mapped_column(String(128), nullable=False, default='manual')
+    observed_state: Mapped[str] = mapped_column(String(32), nullable=False, default='deployed')
+    captured_at: Mapped[DateTime] = mapped_column(DateTime, server_default=func.now(), nullable=False)
+
+    asset = relationship('Asset')
+
+
+class AssetVersion(Base):
+    __tablename__ = 'asset_versions'
+    __table_args__ = (
+        Index('ix_asset_versions_asset', 'asset_id'),
+        Index('ix_asset_versions_hash', 'version_hash'),
+        Index('ix_asset_versions_source', 'source_name'),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    asset_id: Mapped[int] = mapped_column(ForeignKey('assets.id'), nullable=False, index=True)
+    version_kind: Mapped[str] = mapped_column(String(64), nullable=False, default='snapshot')
+    version_ref: Mapped[str] = mapped_column(String(255), nullable=True)
+    version_hash: Mapped[str] = mapped_column(String(128), nullable=False)
+    source_name: Mapped[str] = mapped_column(String(128), nullable=False, default='manual')
+    observed_state: Mapped[str] = mapped_column(String(32), nullable=False, default='deployed')
+    captured_at: Mapped[DateTime] = mapped_column(DateTime, server_default=func.now(), nullable=False)
 
     asset = relationship('Asset')
 

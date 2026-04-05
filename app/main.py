@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
  
 import app.models  # noqa: F401 
-from app.api import admin, assets, auth, chat, domains, impacts, reports, runtime, sla
+from app.api import admin, assets, auth, chat, domains, impacts, ingestion, reports, runtime, sla
 from app.core.config import settings 
 from app.db import Base, SessionLocal, engine
 from app.services.admin_service import bootstrap_admin_catalog
@@ -40,6 +40,7 @@ if static_dir.exists():
 
 
 app.include_router(admin.router)
+app.include_router(ingestion.router)
 app.include_router(auth.router) 
 app.include_router(chat.router) 
 app.include_router(assets.router) 

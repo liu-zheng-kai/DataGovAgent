@@ -100,6 +100,33 @@ uvicorn app.main:app --reload --port 8000
 - Health: `http://127.0.0.1:8000/health`
 - Admin: `http://127.0.0.1:8000/admin`
 
+## Azure ADF 元数据同步
+
+当前分支已经补上第一阶段 Azure 接入基础能力，优先支持 Azure Data Factory 的 metadata ingestion。
+
+在 `.env` 中增加：
+
+```env
+azure_tenant_id=<tenant_id>
+azure_client_id=<app_registration_client_id>
+azure_client_secret=<app_registration_secret>
+azure_subscription_id=<subscription_id>
+azure_resource_group=<resource_group>
+azure_data_factory_name=<data_factory_name>
+```
+
+执行一次元数据同步：
+
+```bash
+python -m app.sync.azure_adf
+```
+
+也可以通过管理接口触发：
+
+- `POST /api/admin/ingestion/adf/sync`
+- `GET /api/admin/ingestion/sources`
+- `GET /api/admin/ingestion/jobs`
+
 ## 常用接口示例
 
 ```bash

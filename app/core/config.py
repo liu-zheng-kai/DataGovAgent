@@ -39,6 +39,15 @@ class Settings(BaseSettings):
     oauth_use_pkce: bool = True
     oauth_http_timeout_seconds: int = 20
     oauth_success_redirect_url: str = ''
+    azure_tenant_id: str = ''
+    azure_client_id: str = ''
+    azure_client_secret: str = ''
+    azure_subscription_id: str = ''
+    azure_resource_group: str = ''
+    azure_data_factory_name: str = ''
+    azure_management_base_url: str = 'https://management.azure.com'
+    azure_management_api_version: str = '2018-06-01'
+    azure_oauth_scope: str = 'https://management.azure.com/.default'
 
     model_config = SettingsConfigDict(
         env_file='.env', env_file_encoding='utf-8', extra='ignore'

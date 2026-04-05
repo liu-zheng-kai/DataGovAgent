@@ -249,6 +249,33 @@ uvicorn app.main:app --reload --port 8000
 - Health check: `http://127.0.0.1:8000/health`
 - Admin console: `http://127.0.0.1:8000/admin`
 
+## Azure ADF Metadata Sync
+
+This branch now includes a first Azure integration foundation focused on Azure Data Factory metadata ingestion.
+
+Add these settings to `.env`:
+
+```env
+azure_tenant_id=<tenant_id>
+azure_client_id=<app_registration_client_id>
+azure_client_secret=<app_registration_secret>
+azure_subscription_id=<subscription_id>
+azure_resource_group=<resource_group>
+azure_data_factory_name=<data_factory_name>
+```
+
+Run a one-time metadata sync:
+
+```bash
+python -m app.sync.azure_adf
+```
+
+Or trigger it from the admin API:
+
+- `POST /api/admin/ingestion/adf/sync`
+- `GET /api/admin/ingestion/sources`
+- `GET /api/admin/ingestion/jobs`
+
 ## REST Examples
 
 ```bash
