@@ -13,6 +13,15 @@ DataGovAgent demonstrates an extensible canonical metadata architecture where:
 - The LLM agent answers governance questions through tools instead of direct database access.
 - Prompt strategy, admin controls, runtime tracing, and operational workflows can evolve without changing the core agent pattern.
 
+## Documentation
+
+- Architecture design document: [English](./docs/architecture.md) | [中文](./docs/architecture.zh.md) | [日本語](./docs/architecture.ja.md)
+
+### Documentation TODO
+
+- [x] Publish the architecture design document for the Metadata + Runtime + Business Context model
+- [ ] Add a dedicated Azure integration document for ADF, Synapse, Cosmos DB, Log Analytics, and Azure DevOps mapping
+
 ## Architecture
 
 ![Architecture Diagram](./docs/images/architecture_flow.png)
